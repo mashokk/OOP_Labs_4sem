@@ -120,6 +120,7 @@ namespace WinFormsApp1
             //}
             //else
             //{
+            try { 
             richTextBox.Text = "БАНКОВСКИЙ ЧЕК" + "\n\n";
             richTextBox.Text += "---------------------------------" + "\n\n";
             richTextBox.Text += bank.Number + "\n";
@@ -134,7 +135,15 @@ namespace WinFormsApp1
             richTextBox.Text += "ФИО владельца: " + bank.vladelets.Name;
             richTextBox.Text += "Дата рождения: " + bank.vladelets.d;
             richTextBox.Text += "Серия и номер паспорта: " + bank.vladelets.Seria + bank.vladelets.Nomer;
-            //}
+            }
+            catch (NullReferenceException)
+            {
+                richTextBox.Text = "какая то гавна";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Исключение: {ex.Message}");
+            }
         }
 
     }
