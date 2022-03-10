@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Study\\2 курс\\4 семестр\\ООП\\сами лабы\\3 лаба\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj",
+      "projectUniqueName": "C:\\Study\\2 курс\\4 семестр\\ООП\\сами лабы\\OOP_Labs_4sem-main\\3 лаба\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj",
       "projectName": "WinFormsApp1",
-      "projectPath": "C:\\Study\\2 курс\\4 семестр\\ООП\\сами лабы\\3 лаба\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj",
+      "projectPath": "C:\\Study\\2 курс\\4 семестр\\ООП\\сами лабы\\OOP_Labs_4sem-main\\3 лаба\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj",
       "packagesPath": "C:\\Users\\Masha\\.nuget\\packages\\",
-      "outputPath": "C:\\Study\\2 курс\\4 семестр\\ООП\\сами лабы\\3 лаба\\WinFormsApp1\\WinFormsApp1\\obj\\",
+      "outputPath": "C:\\Study\\2 курс\\4 семестр\\ООП\\сами лабы\\OOP_Labs_4sem-main\\3 лаба\\WinFormsApp1\\WinFormsApp1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Masha\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -63,7 +63,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
       }
     }
   }

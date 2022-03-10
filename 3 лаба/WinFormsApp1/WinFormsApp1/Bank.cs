@@ -27,8 +27,6 @@ namespace WinFormsApp1
 
         public static Class1 bank = new Class1();
 
-        //String repeatedString = new String("a", 10);
-
         private void Bank_Load(object sender, EventArgs e)
         {
 
@@ -80,39 +78,6 @@ namespace WinFormsApp1
                 podkluchenieIB_checkBox.Text = String.Format("Нет");
             }
         }
-        /*bool allTextBoxesIsNotEmpty()
-        {
-            bool AllIsOk = true;
-            if (label9.Text == "не выбрана" || label9.Text == "" || bank.vladelets.Name == "" || bank.vladelets.Seria == "" || bank.vladelets.Nomer == "")
-            {
-                AllIsOk = false;
-                //Ничего не добавляем
-            }
-            foreach (Control C in this.Controls)
-            {
-                if (C.GetType() == typeof(TextBox))
-                    AllIsOk &= ((TextBox)C).TextLength > 0;
-                else
-                {
-                    AllIsOk = false;
-                }
-            }
-            foreach (Control C in this.Controls)
-            {
-                if (C.GetType() == typeof(ComboBox))
-                    AllIsOk &= ((ComboBox)C).Text == "";
-                else
-                {
-                    AllIsOk = false;
-                }
-            }
-            if (AllIsOk == false)
-            {
-                Gotovo1_button.Enabled = false;
-            }
-            return AllIsOk;
-        }*/
-
         private void Gotovo1_button_Click(object sender, EventArgs e) //КНОПКА КОТОРАЯ ВЫВОДИТ РЕЗУЛЬТАТ
         {
             try
@@ -138,68 +103,6 @@ namespace WinFormsApp1
                 MessageBox.Show("Заполните все поля.", "Ошибка.");
             }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //Gotovo1_button.Enabled = allTextBoxesIsNotEmpty();
-            //if (bank.vladelets.d == "" || bank.vladelets.Name == "" || bank.vladelets.Seria == "" || bank.vladelets.Nomer == "" || bank.Number == "" || bank.Vklad == "" || bank.vladelets.Name == "" || bank.vladelets.Seria == "" || bank.vladelets.Nomer == "")
-            //{
-            //    richTextBox.Text = "Все поля являются обязательными для ввода!";
-            //}
-            //else
-            //{
-
-
-
-            /*try { 
-            richTextBox.Text = "БАНКОВСКИЙ ЧЕК" + "\n\n";
-            richTextBox.Text += "---------------------------------" + "\n\n";
-            richTextBox.Text += bank.Number + "\n";
-
-            richTextBox.Text += "Тип вклада: " + bank.Vklad + "\n";
-            richTextBox.Text += "Баланс: " + label9.Text + "$" + "\n";
-            richTextBox.Text += "Дата открытия: " + Data_otkritiya_dateTimePicker.Value + "\n";
-            richTextBox.Text += "Смс-оповещения подключены: " + podkluchenieSMS_checkBox.Text + "\n";
-            richTextBox.Text += "Интернет-банкинг подключен: " + podkluchenieIB_checkBox.Text + "\n\n";
-
-
-            richTextBox.Text += "ФИО владельца: " + bank.vladelets.Name;
-            richTextBox.Text += "Дата рождения: " + bank.vladelets.d;
-            richTextBox.Text += "Серия и номер паспорта: " + bank.vladelets.Seria + bank.vladelets.Nomer;
-            }
-            catch (NullReferenceException)
-            {
-                richTextBox.Text = "какая то гавна";
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Исключение: {ex.Message}");
-            }*/
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -254,16 +157,33 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("Невозможно сохранить XML файл.", "Ошибка.");
             }
-            /*if (dataGridView1.Rows.Count > 0) //если в таблице больше нуля строк
+        }
+
+        private void button3_Click(object sender, EventArgs e) //    очистить таблицу
+        {
+            if (dataGridView1.Rows.Count > 0)
             {
-                MessageBox.Show("Очистите поле перед загрузкой нового файла.", "Ошибка.");
+                dataGridView1.Rows.Clear();
             }
             else
-            {*//*
-                if (File.Exists("С:\\Study\\2 курс\\4 семестр\\ООП\\сами лабы\\3 лаба\\Data.xml")) // если существует данный файл
+            {
+                MessageBox.Show("Таблица пустая.", "Ошибка.");
+            }
+        }
+
+
+        private void button1_Click_1(object sender, EventArgs e) //        ПОИСК
+        {
+            Form f = new Search();
+            f.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e) //         SORT но не сорт!!!!! временно
+        {
+                if (File.Exists(@"C:\Study\2 курс\4 семестр\ООП\сами лабы\3 лаба\Data.xml")) // если существует данный файл
                 {
                     DataSet ds = new DataSet(); // создаем новый пустой кэш данных
-                    ds.ReadXml("С:\\Study\\2 курс\\4 семестр\\ООП\\сами лабы\\3 лаба\\Data.xml"); // записываем в него XML-данные из файла
+                    ds.ReadXml(@"C:\Study\2 курс\4 семестр\ООП\сами лабы\3 лаба\Data.xml"); // записываем в него XML-данные из файла
 
                     foreach (DataRow item in ds.Tables["BANK"].Rows)
                     {
@@ -284,45 +204,6 @@ namespace WinFormsApp1
                 {
                     MessageBox.Show("XML файл не найден.", "Ошибка.");
                 }
-            //}*/
-        }
-
-        private void button3_Click(object sender, EventArgs e) //    очистить таблицу
-        {
-            if (dataGridView1.Rows.Count > 0)
-            {
-                dataGridView1.Rows.Clear();
-            }
-            else
-            {
-                MessageBox.Show("Таблица пустая.", "Ошибка.");
-            }
-        }
-
-
-        public void button1_Click_1(object sender, EventArgs e) //        ПОИСК
-        {
-            Form f = new Search();
-            f.Show();
-        }
-
-        
-        private void button4_Click(object sender, EventArgs e) //         SORT
-        {
-            /*int clickCount = 0;
-            ++clickCount;
-            switch (clickCount)
-            { //не получается
-                case 1:
-                    //при первом клике на кнопку выполнялось одно действие*/
-                    dataGridView1.Sort(dataGridView1.Columns[bank.Number], ListSortDirection.Ascending);
-                    /*break;
-                case 2:
-                    // при втором клике - второе
-                    dataGridView1.Sort(dataGridView1.Columns[label9.Text], ListSortDirection.Ascending);
-                    break; //?????????????????????????????????????????????????????????????
-            }*/
-            //dataGridView1.Sort(dataGridView1.Columns[]);
         }
     }
 }
