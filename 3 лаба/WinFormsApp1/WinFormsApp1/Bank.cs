@@ -155,7 +155,47 @@ namespace WinFormsApp1
 
         private void button2_Click(object sender, EventArgs e) //кнопка СОХРАНИТЬ в XML
         {
-            
+            try
+            {
+                DataSet ds = new DataSet(); // создаем пока что пустой кэш данных
+                DataTable dt = new DataTable(); // создаем пока что пустую таблицу данных
+                dt.TableName = "BANK"; // название таблицы
+                dt.Columns.Add("NOMER"); // название колонок
+                dt.Columns.Add("BALANS");
+                dt.Columns.Add("VKLAD");
+
+                dt.Columns.Add("D_OPEN");
+                dt.Columns.Add("SMS");
+                dt.Columns.Add("IB");
+                dt.Columns.Add("FIO");
+                dt.Columns.Add("D_BDAY");
+                dt.Columns.Add("PASSPORT");
+                ds.Tables.Add(dt); //в ds создается таблица, с названием и колонками, созданными выше
+
+                foreach (DataGridViewRow r in dataGridView1.Rows) // пока в dataGridView1 есть строки
+                {
+                    DataRow row = ds.Tables["BANK"].NewRow(); // создаем новую строку в таблице, занесенной в ds
+                    row["NOMER"] = r.Cells[0].Value;  //в столбец этой строки заносим данные из первого столбца dataGridView1
+                    row["BALANS"] = r.Cells[1].Value; // то же самое со вторыми столбцами
+                    row["VKLAD"] = r.Cells[2].Value; //то же самое с третьими столбцами
+
+                    row["D_OPEN"] = r.Cells[3].Value;
+                    row["SMS"] = r.Cells[4].Value;
+                    row["IB"] = r.Cells[5].Value;
+                    row["FIO"] = r.Cells[6].Value;
+                    row["D_BDAY"] = r.Cells[7].Value;
+                    row["PASSPORT"] = r.Cells[8].Value;
+
+                    ds.Tables["BANK"].Rows.Add(row); //добавление всей этой строки в таблицу ds.
+                }
+                ds.WriteXml(@"C:\Study\2 курс\4 семестр\ООП\сами лабы\3 лаба\saved.xml");
+
+                MessageBox.Show("XML файл успешно сохранен.", "Выполнено.");
+            }
+            catch
+            {
+                MessageBox.Show("Невозможно сохранить XML файл.", "Ошибка.");
+            }
         }
 
         private void button3_Click(object sender, EventArgs e) //    очистить таблицу

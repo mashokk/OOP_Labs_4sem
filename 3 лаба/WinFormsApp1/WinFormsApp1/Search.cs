@@ -16,7 +16,14 @@ namespace WinFormsApp1
         public Search()
         {
             InitializeComponent();
-
+            if (dataGridView2.Rows.Count > 0)
+            {
+                dataGridView2.Rows.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Таблица пустая.", "Ошибка.");
+            }
 
             if (File.Exists(@"C:\Study\2 курс\4 семестр\ООП\сами лабы\3 лаба\Data.xml")) // если существует данный файл
             {
@@ -42,6 +49,17 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("XML файл не найден.", "Ошибка.");
             }
+
+
+            for (int i = 0; i < dataGridView2.RowCount - 1; i++)
+            {
+
+                if (dataGridView2.Rows[i].Cells[0].Value.ToString() == "")
+                {
+                    dataGridView2.Rows.RemoveAt(i);
+                    i--;
+                }
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) // НОМЕР СЧЕТА ПОИСК
@@ -57,6 +75,15 @@ namespace WinFormsApp1
         private void button2_Click(object sender, EventArgs e) //ОТМЕНА (закрытие окошка)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string selectString = "Name Like '%" + textBox1.Text.Trim() + "%'";
+            DataRowCollection allRows = ((DataTable)dataGridView2.DataSource).Rows;
+            DataRow[] searchedRows = ((DataTable)dataGridView2.DataSource).Select(selectString);
+            int rowIndex = allRows.IndexOf(searchedRows[0]);
+            dataGridView2.CurrentCell = dataGridView2[0, rowIndex];
         }
     }
 }
