@@ -102,21 +102,6 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("Заполните все поля.", "Ошибка.");
             }
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) //о программе
-        {
-            MessageBox.Show("Версия: 1.3\nРазработчик: маш ок", "О программе");
-        }
-
-        private void button2_Click(object sender, EventArgs e) //кнопка СОХРАНИТЬ в XML
-        {
             try
             {
                 DataSet ds = new DataSet(); // создаем пока что пустой кэш данных
@@ -151,12 +136,26 @@ namespace WinFormsApp1
                     ds.Tables["BANK"].Rows.Add(row); //добавление всей этой строки в таблицу ds.
                 }
                 ds.WriteXml(@"C:\Study\2 курс\4 семестр\ООП\сами лабы\3 лаба\Data.xml");
-                MessageBox.Show("XML файл успешно сохранен.", "Выполнено.");
             }
             catch
             {
                 MessageBox.Show("Невозможно сохранить XML файл.", "Ошибка.");
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) //о программе
+        {
+            MessageBox.Show("Версия: 1.3\nРазработчик: маш ок", "О программе");
+        }
+
+        private void button2_Click(object sender, EventArgs e) //кнопка СОХРАНИТЬ в XML
+        {
+            
         }
 
         private void button3_Click(object sender, EventArgs e) //    очистить таблицу
