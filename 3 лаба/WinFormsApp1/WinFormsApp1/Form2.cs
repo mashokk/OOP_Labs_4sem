@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace WinFormsApp1
 {
@@ -32,17 +33,26 @@ namespace WinFormsApp1
 
         private void Familia_textBox_TextChanged(object sender, EventArgs e)
         {
-            vladelets.Name = "ФИО: " + Familia_textBox.Text + " " + Imya_textBox.Text + " " + Otchestvo_textBox.Text + "\n";
+            vladelets.Name = Familia_textBox.Text + " " + Imya_textBox.Text + " " + Otchestvo_textBox.Text + "\n";
         }
 
         private void Imya_textBox_TextChanged(object sender, EventArgs e)
         {
-            vladelets.Name = "ФИО: " + Familia_textBox.Text + " " + Imya_textBox.Text + " " + Otchestvo_textBox.Text + "\n";
+            vladelets.Name = Familia_textBox.Text + " " + Imya_textBox.Text + " " + Otchestvo_textBox.Text + "\n";
         }
 
         private void Otchestvo_textBox_TextChanged(object sender, EventArgs e)
         {
-            vladelets.Name = Familia_textBox.Text + " " + Imya_textBox.Text + " " + Otchestvo_textBox.Text + "\n";
+            var data = Otchestvo_textBox.Text;
+            for (int i = 0; i < Otchestvo_textBox.Text.Length; i++)
+            {
+                if (Regex.IsMatch(Otchestvo_textBox.Text, @"^([a-z0-9_-]+\.)*[a-z0-9_-]+@(gmail?|yandex?|tut)+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$"))
+                {
+                    vladelets.Name = Familia_textBox.Text + " " + Imya_textBox.Text + " " + Otchestvo_textBox.Text + "\n";
+                    Otchestvo_textBox.ForeColor = System.Drawing.Color.Green;
+                }
+                else Otchestvo_textBox.ForeColor = System.Drawing.Color.Red;
+            }
         }
 
         private void Gorod_comboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,6 +68,7 @@ namespace WinFormsApp1
         private void nomer_pasport_textBox_TextChanged(object sender, EventArgs e)
         {
             vladelets.Nomer = nomer_pasport_textBox.Text + "\n";
+
         }
 
         private void Data_rozhdeniya_monthCalendar_DateChanged(object sender, DateRangeEventArgs e)

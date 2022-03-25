@@ -44,9 +44,9 @@ namespace WinFormsApp1
             this.seria_pasport_comboBox = new System.Windows.Forms.ComboBox();
             this.nomer_pasport_textBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Gotovo2_button = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.Gotovo2_button = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -184,6 +184,7 @@ namespace WinFormsApp1
             // nomer_pasport_textBox
             // 
             this.nomer_pasport_textBox.Location = new System.Drawing.Point(199, 240);
+            this.nomer_pasport_textBox.MaxLength = 7;
             this.nomer_pasport_textBox.Name = "nomer_pasport_textBox";
             this.nomer_pasport_textBox.Size = new System.Drawing.Size(147, 27);
             this.nomer_pasport_textBox.TabIndex = 13;
@@ -214,16 +215,14 @@ namespace WinFormsApp1
             this.panel1.Size = new System.Drawing.Size(620, 367);
             this.panel1.TabIndex = 14;
             // 
-            // Gotovo2_button
+            // label9
             // 
-            this.Gotovo2_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.Gotovo2_button.Location = new System.Drawing.Point(11, 305);
-            this.Gotovo2_button.Name = "Gotovo2_button";
-            this.Gotovo2_button.Size = new System.Drawing.Size(590, 50);
-            this.Gotovo2_button.TabIndex = 14;
-            this.Gotovo2_button.Text = "Готово";
-            this.Gotovo2_button.UseVisualStyleBackColor = false;
-            this.Gotovo2_button.Click += new System.EventHandler(this.Gotovo2_button_Click);
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(449, 248);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(92, 20);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "не выбрана";
             // 
             // label8
             // 
@@ -234,14 +233,16 @@ namespace WinFormsApp1
             this.label8.TabIndex = 15;
             this.label8.Text = "Дата: ";
             // 
-            // label9
+            // Gotovo2_button
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(449, 248);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(92, 20);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "не выбрана";
+            this.Gotovo2_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.Gotovo2_button.Location = new System.Drawing.Point(11, 305);
+            this.Gotovo2_button.Name = "Gotovo2_button";
+            this.Gotovo2_button.Size = new System.Drawing.Size(590, 50);
+            this.Gotovo2_button.TabIndex = 14;
+            this.Gotovo2_button.Text = "Готово";
+            this.Gotovo2_button.UseVisualStyleBackColor = false;
+            this.Gotovo2_button.Click += new System.EventHandler(this.Gotovo2_button_Click);
             // 
             // Form2
             // 

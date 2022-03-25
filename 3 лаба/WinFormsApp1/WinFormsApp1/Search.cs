@@ -64,7 +64,10 @@ namespace WinFormsApp1
 
         private void textBox1_TextChanged(object sender, EventArgs e) // НОМЕР СЧЕТА ПОИСК
         {
-            
+            //DataView DV = new DataView(dtb2);
+            //DV.RowFilter = string.Format("Column1 LIKE '%{0}%'", textBox1.Text);
+            //dataGridView2.DataSource = DV;
+
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -79,11 +82,35 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string selectString = "Name Like '%" + textBox1.Text.Trim() + "%'";
-            DataRowCollection allRows = ((DataTable)dataGridView2.DataSource).Rows;
-            DataRow[] searchedRows = ((DataTable)dataGridView2.DataSource).Select(selectString);
-            int rowIndex = allRows.IndexOf(searchedRows[0]);
-            dataGridView2.CurrentCell = dataGridView2[0, rowIndex];
+            //(dataGridView2.DataSource as DataTable).DefaultView.RowFilter = String.Format("NOMER like '%" + textBox1.Text + "%'");
+            for (int i = 0; i < dataGridView2.RowCount; i++)
+            {
+                dataGridView2.Rows[i].Selected = false;
+                for (int j = 0; j < dataGridView2.ColumnCount; j++)
+                    if (dataGridView2.Rows[i].Cells[j].Value != null)
+                        if (dataGridView2.Rows[i].Cells[j].Value.ToString().Contains(textBox1.Text))
+                        {
+                            dataGridView2.Rows[i].Selected = true;
+                            break;
+                        }
+            }
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            //BindingSource bs = new BindingSource();
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    if (string.IsNullOrEmpty(textBox1.Text))
+            //        bs.Filter = string.Empty;
+            //    else
+            //        bs.Filter = string.Format("{0}='{1}'", textBox1.Text, comboBox1.Text);
+            //}
+        }
+
+        private void Search_Load(object sender, EventArgs e)
+        {
+            //comboBox1.SelectedIndex = 1;
         }
     }
 }

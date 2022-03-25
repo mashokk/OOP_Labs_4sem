@@ -18,8 +18,8 @@ namespace WinFormsApp1
             InitializeComponent();
             Balans_trackBar.Scroll += Balans_trackBar_Scroll;
 
-            Random r = new Random();
-            int x = r.Next(100000, 999999);
+            Random rand = new Random();
+            int x = rand.Next(100000, 999999);
             Nomer_scheta_textBox.Text = x.ToString();
 
             Tip_vklada_comboBox.Text = "-";
@@ -94,16 +94,10 @@ namespace WinFormsApp1
                 dataGridView1.Rows[n].Cells[8].Value = bank.vladelets.Seria + bank.vladelets.Nomer; //серия и номер паспорта
 
                 Nomer_scheta_textBox.Clear();
-                Random r = new Random();
-                int x = r.Next(10000, 99999);
+                Random rand = new Random();
+                int x = rand.Next(10000, 99999);
                 Nomer_scheta_textBox.Text = x.ToString();
-            }
-            catch(NullReferenceException)
-            {
-                MessageBox.Show("Заполните все поля.", "Ошибка.");
-            }
-            try
-            {
+
                 DataSet ds = new DataSet(); // создаем пока что пустой кэш данных
                 DataTable dt = new DataTable(); // создаем пока что пустую таблицу данных
                 dt.TableName = "BANK"; // название таблицы
@@ -136,6 +130,11 @@ namespace WinFormsApp1
                     ds.Tables["BANK"].Rows.Add(row); //добавление всей этой строки в таблицу ds.
                 }
                 ds.WriteXml(@"C:\Study\2 курс\4 семестр\ООП\сами лабы\3 лаба\Data.xml");
+            }
+            catch(NullReferenceException)
+            {
+
+                MessageBox.Show("Заполните все поля.", "Ошибка.");
             }
             catch
             {
@@ -219,30 +218,7 @@ namespace WinFormsApp1
 
         private void button4_Click(object sender, EventArgs e) //         SORT но не сорт!!!!! временно
         {
-                if (File.Exists(@"C:\Study\2 курс\4 семестр\ООП\сами лабы\3 лаба\Data.xml")) // если существует данный файл
-                {
-                    DataSet ds = new DataSet(); // создаем новый пустой кэш данных
-                    ds.ReadXml(@"C:\Study\2 курс\4 семестр\ООП\сами лабы\3 лаба\Data.xml"); // записываем в него XML-данные из файла
-
-                    foreach (DataRow item in ds.Tables["BANK"].Rows)
-                    {
-                        int n = dataGridView1.Rows.Add(); // добавляем новую сроку в dataGridView1
-                        dataGridView1.Rows[n].Cells[0].Value = item["NOMER"]; // заносим в первый столбец созданной строки данные из первого столбца таблицы ds.
-                        dataGridView1.Rows[n].Cells[1].Value = item["BALANS"]; // то же самое со вторым столбцом
-                        dataGridView1.Rows[n].Cells[2].Value = item["VKLAD"]; // то же самое с третьим столбцом
-
-                        dataGridView1.Rows[n].Cells[3].Value = item["D_OPEN"]; //дата открытия
-                        dataGridView1.Rows[n].Cells[4].Value = item["SMS"]; //смс-оповещения
-                        dataGridView1.Rows[n].Cells[5].Value = item["IB"]; //интернет-банкинг
-                        dataGridView1.Rows[n].Cells[6].Value = item["FIO"]; //ФИО
-                        dataGridView1.Rows[n].Cells[7].Value = item["D_BDAY"]; //дата рождения
-                        dataGridView1.Rows[n].Cells[8].Value = item["PASSPORT"]; //серия и номер паспорта
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("XML файл не найден.", "Ошибка.");
-                }
+            this.dataGridView1.Sort(this.dataGridView1.Columns["Column4"], ListSortDirection.Ascending);
         }
     }
 }
