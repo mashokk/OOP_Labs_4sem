@@ -1,0 +1,49 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="4-5 лабочки бабочки" Height="300" Width="400">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
+        <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed" />
+    </Window.CommandBindings>
+    <DockPanel LastChildFill="True">
+        <ToolBar DockPanel.Dock="Top">
+            <Button Name="New" Click="New_Click"> 
+                <Image Source="C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\New.png" Width="16" Height="16" />
+            </Button>
+            <Button Command="ApplicationCommands.Open">
+                <Image Source="C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\Open.png" Width="16" Height="16" />
+            </Button>
+            <Button Command="ApplicationCommands.Save">
+                <Image Source="C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\Save.png" Width="16" Height="16" />
+            </Button>
+            <Separator />
+            <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold">
+                <Image Source="C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\Bold.png" Width="16" Height="16" />
+            </ToggleButton>
+            <ToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic">
+                <Image Source="C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\Italic.png" Width="16" Height="16" />
+            </ToggleButton>
+            <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline">
+                <Image Source="C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\Underline.png" Width="16" Height="16" />
+            </ToggleButton>
+            <Separator />
+            <ComboBox Name="cmbFontFamily" Width="130" SelectionChanged="cmbFontFamily_SelectionChanged" />
+            <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
+            <Menu Width="50" VerticalAlignment="Top">
+                <MenuItem Header="Color">
+                    <MenuItem Header="Red" Name="btnRed" Click="RedColor_Click"></MenuItem>
+                    <MenuItem Header="Green" Name="btnGreen" Click="GreenColor_Click"></MenuItem>
+                    <MenuItem Header="Blue" Name="btnBlue" Click="BlueColor_Click"></MenuItem>
+                    <MenuItem Header="Black" Name="btnBlack" Click="BlackColor_Click"></MenuItem>
+                </MenuItem>
+            </Menu>
+        </ToolBar>
+        
+        <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged"/>
+    </DockPanel>
+</Window>
