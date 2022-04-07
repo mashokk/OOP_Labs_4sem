@@ -19,9 +19,13 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
+
+			rtbEditor.Document.Blocks.Add(new Paragraph(new Run("Text")));
+			string richText = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd).Text;
+
+			cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
             cmbFontSize.ItemsSource = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
-        }
+		}
 
 
 

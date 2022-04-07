@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="4-5 лабочки бабочки" Height="300" Width="500">
+        Title="4-5 лабочки бабочки" Height="400" Width="700">
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
         <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed" />
@@ -16,7 +16,7 @@
     </Window.InputBindings>
     <DockPanel LastChildFill="True">
         <ToolBar DockPanel.Dock="Top">
-            <Button Name="New" Click="New_Click"> 
+            <Button Name="New" Click="New_Click">
                 <Image Source="C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\New.png" Width="16" Height="16" />
             </Button>
             <Button Command="ApplicationCommands.Open">
@@ -48,8 +48,12 @@
             </Menu>
             <Button Style="{StaticResource SubmitButton}" Click="Button_Click" Command="ApplicationCommands.Undo">Undo</Button>
             <Button Style="{StaticResource CancelButton}" Click="Button_Click" Command="ApplicationCommands.Redo">Redo</Button>
+            <MenuItem Header="Триггеры">
+                <MenuItem Header="События"></MenuItem>
+                <MenuItem Header="Данных"></MenuItem>
+                <MenuItem Header="Мульти"></MenuItem>
+            </MenuItem>
         </ToolBar>
-        
         <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged"/>
     </DockPanel>
 </Window>
