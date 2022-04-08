@@ -15,8 +15,8 @@
         <KeyBinding Command="ApplicationCommands.Redo" Gesture="CTRL+SHIFT+Z" />
     </Window.InputBindings>
     <DockPanel LastChildFill="True">
-        <ToolBar DockPanel.Dock="Top">
-            <Button Name="New" Click="New_Click">
+        <ToolBar DockPanel.Dock="Top" Name="ToolBarColor" Style="{DynamicResource TBStyle}">
+            <Button Name="New" Click="New_Click"> 
                 <Image Source="C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\New.png" Width="16" Height="16" />
             </Button>
             <Button Command="ApplicationCommands.Open">
@@ -48,11 +48,14 @@
             </Menu>
             <Button Style="{StaticResource SubmitButton}" Click="Button_Click" Command="ApplicationCommands.Undo">Undo</Button>
             <Button Style="{StaticResource CancelButton}" Click="Button_Click" Command="ApplicationCommands.Redo">Redo</Button>
-            <MenuItem Header="Триггеры">
-                <MenuItem Header="События"></MenuItem>
-                <MenuItem Header="Данных"></MenuItem>
-                <MenuItem Header="Мульти"></MenuItem>
-            </MenuItem>
+            <Menu>
+                <MenuItem Header="Триггеры">
+                    <MenuItem Header="События" Name="eventsTrigger" Click="Events_Click"></MenuItem>
+                    <MenuItem Header="Данных" Name="dataTrigger" Click="Data_Click"></MenuItem>
+                    <MenuItem Header="Мульти" Name="multiTrigger" Click="Multi_Click"></MenuItem>
+                </MenuItem>
+            </Menu>
+            <ComboBox x:Name="styleBox" Width="50"/>
         </ToolBar>
         <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged"/>
     </DockPanel>

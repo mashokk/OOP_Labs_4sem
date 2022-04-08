@@ -20,3 +20,11 @@ C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\WpfAp
 C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\WpfApp1\WpfApp1\obj\Debug\netcoreapp3.1\WPFNotepad.genruntimeconfig.cache
 C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\WpfApp1\WpfApp1\obj\Debug\netcoreapp3.1\ResourceDictionaries\ButtonDictionary.baml
 C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\WpfApp1\WpfApp1\obj\Debug\netcoreapp3.1\App.baml
+C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\WpfApp1\WpfApp1\obj\Debug\netcoreapp3.1\WindowTrg.g.cs
+C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\WpfApp1\WpfApp1\obj\Debug\netcoreapp3.1\WindowTrg.baml
+C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\WpfApp1\WpfApp1\obj\Debug\netcoreapp3.1\WindowTrg2.g.cs
+C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\WpfApp1\WpfApp1\obj\Debug\netcoreapp3.1\WindowTrg2.baml
+C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\WpfApp1\WpfApp1\obj\Debug\netcoreapp3.1\WindowTrg3.g.cs
+C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\WpfApp1\WpfApp1\obj\Debug\netcoreapp3.1\WindowTrg3.baml
+C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\WpfApp1\WpfApp1\obj\Debug\netcoreapp3.1\dark.baml
+C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\WpfApp1\WpfApp1\obj\Debug\netcoreapp3.1\light.baml

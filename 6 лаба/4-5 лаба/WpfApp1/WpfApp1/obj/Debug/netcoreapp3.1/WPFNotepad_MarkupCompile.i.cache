@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Study\2 курс\4 семестр\ООП\сами лабы\4-5 лаба\WpfApp1\WpfApp1\App.xaml
-2-596090163
+71945658004
 
-5-18867947
+8-1555862786
 192-1533232326
-MainWindow.xaml;ResourceDictionaries\ButtonDictionary.xaml;
+dark.xaml;light.xaml;MainWindow.xaml;ResourceDictionaries\ButtonDictionary.xaml;WindowTrg.xaml;WindowTrg2.xaml;WindowTrg3.xaml;
 
-False
+True
 

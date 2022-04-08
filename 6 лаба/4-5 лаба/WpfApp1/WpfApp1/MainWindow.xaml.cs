@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using Microsoft.Win32;
 using System.Windows.Controls;
+using System.Data;
 
 namespace WpfApp1
 {
@@ -20,14 +21,31 @@ namespace WpfApp1
         {
             InitializeComponent();
 
-			rtbEditor.Document.Blocks.Add(new Paragraph(new Run("Text")));
-			string richText = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd).Text;
+			//rtbEditor.Document.Blocks.Add(new Paragraph(new Run("Text")));
+			//string richText = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd).Text;
 
 			cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
             cmbFontSize.ItemsSource = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
+
+
+			List<string> styles = new List<string> { "light", "dark" };
+			styleBox.SelectionChanged += ThemeChange;
+			styleBox.ItemsSource = styles;
+			styleBox.SelectedItem = "light";
 		}
 
-
+		private void ThemeChange(object sender, SelectionChangedEventArgs e)
+		{
+			string style = styleBox.SelectedItem as string;
+			// определяем путь к файлу ресурсов
+			var uri = new Uri(style + ".xaml", UriKind.Relative);
+			// загружаем словарь ресурсов
+			ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
+			// очищаем коллекцию ресурсов приложения
+			Application.Current.Resources.Clear();
+			// добавляем загруженный словарь ресурсов
+			Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+		}
 
 		private void rtbEditor_SelectionChanged(object sender, RoutedEventArgs e)
 		{
@@ -106,10 +124,24 @@ namespace WpfApp1
         {
             rtbEditor.Foreground = Brushes.Black;
         }
-
         private void Button_Click(object sender, RoutedEventArgs e) //Отменить! undo
         {
 
 		}
-    }
+		private void Data_Click(object sender, RoutedEventArgs e)
+		{
+            WPFNotepad.WindowTrg trgr = new WPFNotepad.WindowTrg();
+			trgr.Show();
+		}
+		private void Events_Click(object sender, RoutedEventArgs e)
+		{
+			WPFNotepad.WindowTrg2 trgr2 = new WPFNotepad.WindowTrg2();
+			trgr2.Show();
+		}
+		private void Multi_Click(object sender, RoutedEventArgs e)
+		{
+			WPFNotepad.WindowTrg3 trgr3 = new WPFNotepad.WindowTrg3();
+			trgr3.Show();
+		}
+	}
 }

@@ -7,10 +7,36 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="WindowTrg.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WindowTrg2.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WindowTrg3.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ResourceDictionaries\ButtonDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="dark.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="light.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowTrg.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowTrg2.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowTrg3.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
