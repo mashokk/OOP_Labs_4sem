@@ -23,6 +23,31 @@ namespace WpfApp1
             InitializeComponent();
             _vm = new Window2ViewModel();
             this.DataContext = _vm;
+            button3.Content = "Mouse Leave Event";
+            image1.Visibility = Visibility.Hidden;
+        }
+
+
+        private void Control_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            textBlock1.Text = textBlock1.Text + "sender: " + sender.ToString() + "\n";
+            textBlock1.Text = textBlock1.Text + "source: " + e.Source.ToString() + "\n\n";
+        }
+        private void Control2_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            textBlock2.Text = textBlock2.Text + "sender: " + sender.ToString() + "\n";
+            textBlock2.Text = textBlock2.Text + "source: " + e.Source.ToString() + "\n\n";
+        }
+
+        private void event_MouseEnter(object sender, MouseEventArgs e)
+        {
+            button3.Content = "Mouse Enter Event";
+            image1.Visibility = Visibility.Visible;
+        }
+        private void event_MouseLeave(object sender, MouseEventArgs e)
+        {
+            button3.Content = "Mouse Leave Event";
+            image1.Visibility = Visibility.Hidden;
         }
     }
 
@@ -52,9 +77,8 @@ namespace WpfApp1
             string val = (string)value;
 
             if (!string.IsNullOrEmpty(val) &&
-                System.Text.RegularExpressions.Regex.IsMatch(val, "[/!@#?/}[}{]"))
+                System.Text.RegularExpressions.Regex.IsMatch(val, "[/!@#?/}[}{№]"))
             {
-                val = "gg";
                 return val;
             }
             return value;
